@@ -1,9 +1,9 @@
 import React, {FC} from "react";
 import {View, StyleSheet, Text} from 'react-native'
-import {useAppDispatch, useAppSelector} from "../../../shared/models/storeHooks";
+import {useAppSelector} from "../../../shared/models/storeHooks";
 import {selectBarId, selectCityId, selectParentId} from "../../MenuList/models/selectors";
-import {useNavigation} from "@react-navigation/native";
-import {useGetCurrentMenuItemQuery, useGetMenuQuery} from "../../../shared/models/cityBarsApi";
+
+import {useGetCurrentMenuItemQuery} from "../../../shared/models/cityBarsApi";
 
 
 const CurrentMenuItem: FC = () => {

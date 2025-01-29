@@ -1,4 +1,4 @@
-import {ActivityIndicator, FlatList, Text, View} from "react-native";
+import {ActivityIndicator, FlatList, View} from "react-native";
 import {useAppDispatch, useAppSelector} from "../../../shared/models/storeHooks";
 import {selectBarId, selectCityId} from "../models/selectors";
 import {useGetMenuQuery} from "../../../shared/models/cityBarsApi";
@@ -22,7 +22,7 @@ const MenuList = () => {
     if (data === undefined) {
         return null
     }
-
+    console.log('data', cityId, barId, JSON.stringify(data, null, 2))
 
     const rootCategories = structureToArray(data.structure)
     const handleCitySelect = (parentId: number) => {
