@@ -6,6 +6,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import CityBarsScreen from "../screens/CityBars/ui/CityBarsScreen";
 import SelectedBarsScreen from "../screens/CityBars/ui/SelectedBarsScreen";
+import BarMenuScreen from "../screens/CityBars/ui/BarMenuScreen";
+import CurrentMenuItemScreen from "../screens/CityBars/ui/CurrentMenuItemScreen";
 
 
 const RootStack = createNativeStackNavigator({
@@ -24,6 +26,22 @@ const RootStack = createNativeStackNavigator({
                 title: 'SelectedBarsScreen',
                 headerShown: true,
                 headerTitle: 'Бары в городе'
+            },
+        },
+        Menu: {
+            screen: BarMenuScreen,
+            options: {
+                title: 'BarMenuScreen',
+                headerShown: true,
+                headerTitle: 'Меню'
+            },
+        },
+        CurrentMenuItem: {
+            screen: CurrentMenuItemScreen,
+            options: {
+                title: 'CurrentMenuItem',
+                headerShown: true,
+                headerTitle: 'Описание позиции'
             },
         },
     },

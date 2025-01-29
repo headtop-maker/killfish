@@ -2,7 +2,8 @@ export interface CityBarsState {
     modalText: string;
     selectedBars: TBars[]
     cityId: number | undefined,
-    barId: number | undefined
+    barId: number | undefined,
+    parentId: number | undefined
 }
 
 export type TCityBarsResponse = {
@@ -48,4 +49,28 @@ export type Hours = {
     euro: Cuisine;
     japan: Cuisine;
     delivery: Cuisine;
+}
+
+export interface TStructureItem {
+    id: number;
+    parent_id: number;
+    title: string;
+    small_title: string;
+    type: string;
+    cex_id: number;
+    active: number;
+    image: string;
+    image_hq: string;
+    menu_count: number;
+    childs: number[];
+}
+
+export type TStructure = Record<number, TStructureItem>;
+
+export type TMenuResponse = {
+    ok: true,
+    root: number,
+    structure: TStructure
+    childs: string[]
+
 }

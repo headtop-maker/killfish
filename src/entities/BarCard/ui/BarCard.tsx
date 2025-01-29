@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 import {TBars} from "../../../shared/models/types";
 
 interface BarCardProps {
@@ -25,7 +25,7 @@ const BarCard: FC<BarCardProps> = ({bar, onSelect}) => {
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
                         style={styles.callButton}
-                        onPress={() => bar.phone && console.log(`${bar.phone}`)}
+                        onPress={() => bar.phone && Linking.openURL(`tel:${bar.phone}`)}
                     >
                         <Text style={styles.callButtonText}>Позвонить: {bar.phone}</Text>
                     </TouchableOpacity>

@@ -6,12 +6,17 @@ import {TBars} from "../../../shared/models/types";
 
 import BarCard from "../../../entities/BarCard/ui/BarCard";
 import {setBarId} from "../../../shared/models/cityBarsSlice";
+import {useNavigation} from "@react-navigation/native";
 
 const BarsList = () => {
+
+    const navigation = useNavigation();
     const selected = useAppSelector(selectBars)
     const dispatch = useAppDispatch()
+
     const handleBarSelect = (barId: number) => {
         dispatch(setBarId(barId))
+        navigation.navigate('Menu')
     };
 
     const renderItem = ({item}: { item: TBars }) => {
@@ -19,7 +24,6 @@ const BarsList = () => {
     };
 
     return (
-
         <View>
             <FlatList
                 data={selected}
