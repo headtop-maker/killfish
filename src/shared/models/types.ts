@@ -74,3 +74,32 @@ export type TMenuResponse = {
     childs: string[]
 
 }
+export type IProductResponse = {
+    ok: true,
+    items: IProduct[]
+}
+
+type PriceDetails = {
+    card: number;
+    full: number;
+};
+
+export  type IProduct = {
+    item_id: number;
+    parent_id: number;
+    title: string;
+    small_title: string;
+    active: number;
+    descr: string;
+    cook_comm: any[];
+    price: number;
+    prices: PriceDetails;
+    composite: number;
+    mod: string;
+    action_id: number;
+    action_type: string;
+    image: string;
+    image_hq: string;
+    parents: any[];
+    actions: null | any;
+};

@@ -4,13 +4,18 @@ import {FC} from "react";
 
 interface MenuCategoryCardProp {
     category: TStructureItem
-    onSelect: (barId: number) => void;
+    onSelect: (parent_id: number) => void;
 }
 
-const MenuCategoryCard: FC<MenuCategoryCardProp> = ({category, onSelect}) => {
+const VerticalCardItem: FC<MenuCategoryCardProp> = ({category, onSelect}) => {
     const {title, image, id} = category
     return (
         <TouchableOpacity style={styles.card} onPress={() => onSelect(id)}>
+            <Image
+                source={{uri: image}}
+                style={styles.image}
+                resizeMode="cover"
+            />
             <View style={styles.infoContainer}>
                 <Text style={styles.title}>{title}</Text>
             </View>
@@ -21,8 +26,8 @@ const MenuCategoryCard: FC<MenuCategoryCardProp> = ({category, onSelect}) => {
 const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
     card: {
+        width: width * 0.9,
         backgroundColor: '#fff',
-        height: 60,
         borderRadius: 10,
         overflow: 'hidden',
         marginBottom: 16,
@@ -50,4 +55,4 @@ const styles = StyleSheet.create({
         marginTop: 4,
     },
 })
-export default MenuCategoryCard
+export default VerticalCardItem
