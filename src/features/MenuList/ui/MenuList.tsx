@@ -25,14 +25,13 @@ const MenuList = () => {
     const {data, isLoading} = useGetMenuQuery({barId, cityId})
 
 
-    const initialChildren = !!data && structureToArray(data.structure)[0]
-    const initialCards = !!initialChildren && initialChildren.childs.map(item => data.structure[item])
-
-    useEffect(() => {
+    useLayoutEffect(() => {
+        const initialChildren = !!data && structureToArray(data.structure)[0]
+        const initialCards = !!initialChildren && initialChildren.childs.map(item => data.structure[item])
         if (!!initialCards && initialCards.length > 0) {
             setCildsCat(initialCards)
         }
-    }, [])
+    }, [data])
 
 
     if (data === undefined) {
